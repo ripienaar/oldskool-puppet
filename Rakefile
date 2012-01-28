@@ -3,7 +3,7 @@ require 'rake/gempackagetask'
 
 spec = Gem::Specification::new do |spec|
   spec.name = "oldskool-puppet"
-  spec.version = "0.0.1"
+  spec.version = "0.0.2"
   spec.platform = Gem::Platform::RUBY
   spec.summary = "oldskool-1assword"
   spec.description = "description: Generate documentation for Puppet types"
@@ -15,6 +15,8 @@ spec = Gem::Specification::new do |spec|
 
   spec.has_rdoc = false
   spec.test_files = nil
+  spec.add_dependency 'puppet'
+  spec.add_dependency 'redcarpet'
 
   spec.extensions.push(*[])
 
