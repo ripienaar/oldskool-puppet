@@ -1,0 +1,37 @@
+<% unless @error %>
+  <style>
+    code {
+      background-color: whiteSmoke;
+      padding: 0 0 0 0;
+    }
+  </style>
+  <h2><%= @result[:type][:name].to_s.capitalize %> version <%= @result[:type][:version] %></h2>
+  <p>
+  <a href="#params">Paramaters</a>, <a href="#metaparams">Meta Parameters</a>
+  </p>
+  <div>
+    <%= markdown @result[:type][:description] %>
+  </div>
+  <a name="params"></a>
+<%  @result[:type][:params].keys.sort.each do |param| %>
+<%    doc = @result[:type][:params][param] %>
+      <h3>
+        <%= param %>
+        <%= (doc[:type] == :namevar) ? '<span class="label success">Namevar</span>' : '' %>
+      </h3>
+      <div>
+        <%= markdown(doc[:markdown]) %>
+      </div>
+<%  end %>
+  <a name="metaparams"></a>
+  <hr>
+<%  @result[:type][:metaparams].keys.sort.each do |param| %>
+<%    doc = @result[:type][:metaparams][param] %>
+      <h3>
+        <%= param %> <span class="label notice">Meta</span>
+      </h3>
+      <div>
+        <%= markdown(doc[:markdown]) %>
+      </div>
+<% end %>
+<% end %>
