@@ -10,7 +10,7 @@ To activate this plugin in you Oldskool install just add it to the Gemfile, to
 have a specific version of Puppet used as reference source add this to the Gemfile:
 
     gem 'puppet', "2.6.9"
-    gem 'oldskool-puppet', '>= 0.0.2'
+    gem 'oldskool-puppet', '>= 0.0.3'
 
 Once the plugin is activated create a keyword in your _oldskool.yaml_:
 
