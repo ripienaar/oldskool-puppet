@@ -3,7 +3,7 @@ require 'rake/gempackagetask'
 
 spec = Gem::Specification::new do |spec|
   spec.name = "oldskool-puppet"
-  spec.version = "0.0.4"
+  spec.version = "0.0.5"
   spec.platform = Gem::Platform::RUBY
   spec.summary = "oldskool-puppet"
   spec.description = "description: Generate documentation for Puppet types"
