@@ -19,18 +19,14 @@ module Oldskool
       @type = Puppet::Type.const_get(type.capitalize)
     end
 
-    def cleantext(text)
-      (text =~ /^(\s+)/) ? text.gsub(/^#{$1}/,'') : text
-    end
-
     def paramdoc(param)
       doc = {}
 
       if type.parameters.include?(param)
-        doc[:markdown] = cleantext(type.attrclass(param).doc)
+        doc[:markdown] = type.attrclass(param).doc
         doc[:type] = :param
       elsif type.metaparams.include?(param)
-        doc[:markdown] = cleantext(type.attrclass(param).doc)
+        doc[:markdown] = type.attrclass(param).doc
         doc[:type] = :meta
       end
 
@@ -43,7 +39,7 @@ module Oldskool
 
     def doc
       param_docs = {:name => type.name,
-                    :description => cleantext(type.doc),
+                    :description => type.doc,
                     :version => Puppet.version,
                     :params => {}, :metaparams => {}}
 
