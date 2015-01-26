@@ -16,7 +16,7 @@ module Oldskool
 
       menu = [{:title => "Type Reference", :url => "http://docs.puppetlabs.com/references/stable/type.html"},
               {:title => "Function Reference", :url => "http://docs.puppetlabs.com/references/stable/function.html"},
-              {:title => "Language Guide", :url => "http://docs.puppetlabs.com/guides/language_guide.html"}]
+              {:title => "Language Guide", :url => "https://docs.puppetlabs.com/puppet/latest/reference/lang_summary.html"}]
 
       {:template => plugin_template(:type), :type => type.doc, :topmenu => menu}
     end
