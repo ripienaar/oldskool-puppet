@@ -25,6 +25,9 @@ module Oldskool
       if type.parameters.include?(param)
         doc[:markdown] = type.attrclass(param).doc
         doc[:type] = :param
+      elsif type.validproperties.include?(param)
+        doc[:markdown] = type.propertybyname(param).doc
+        doc[:type] = :property
       elsif type.metaparams.include?(param)
         doc[:markdown] = type.attrclass(param).doc
         doc[:type] = :meta
@@ -44,6 +47,7 @@ module Oldskool
                     :params => {}, :metaparams => {}}
 
       type.parameters.each {|param| param_docs[:params][param] = paramdoc(param)}
+      type.validproperties.each {|param| param_docs[:params][param] = paramdoc(param)}
       type.metaparams.each {|param| param_docs[:metaparams][param] = paramdoc(param)}
 
       param_docs

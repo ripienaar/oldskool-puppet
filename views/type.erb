@@ -12,8 +12,12 @@
   <div>
     <%= markdown @result[:type][:description] %>
   </div>
+<%  @result[:type][:params].keys.sort.each do |param| %>
+  <a href="#param-<%= param %>"><%= param %></a>&nbsp;
+<%  end %>
   <a name="params"></a>
 <%  @result[:type][:params].keys.sort.each do |param| %>
+  <a name="param-<%= param %>"></a>
 <%    doc = @result[:type][:params][param] %>
       <h3>
         <%= param %>
@@ -26,6 +30,7 @@
   <a name="metaparams"></a>
   <hr>
 <%  @result[:type][:metaparams].keys.sort.each do |param| %>
+  <a name="metaparam-<%= param %>"></a>
 <%    doc = @result[:type][:metaparams][param] %>
       <h3>
         <%= param %> <span class="label notice">Meta</span>
